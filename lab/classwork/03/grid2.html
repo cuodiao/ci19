@@ -1,0 +1,36 @@
+<!DOCTYPE html> <!-- it tells the version of the html -->
+	<title>grid</title>
+<style>
+
+body{
+	display:grid;
+	grid-template-columns:150px auto 150px;/*auto自动填补空间*/
+	grid-template-rows: 200px 50px 150px;
+}
+div:nth-child(odd){
+	background-color:green;
+}
+div:nth-child(even){
+	background-color:pink;
+}
+.title{
+	grid-column-start:2;
+	grid-column-end:4;
+}
+.title{
+	grid-row-start:1;
+	grid-row-end:4;
+}
+
+</style>
+	<body>
+		<div class="sidebar">1</div>
+		<div class="title">2</div>
+		<div>3</div>
+		<div>4</div>
+		<div>5</div>
+		<div>6</div>
+		
+
+
+	</body>

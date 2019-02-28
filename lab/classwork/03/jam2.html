@@ -1,0 +1,41 @@
+<!DOCTYPE html> <!-- it tells the version of the html -->
+	<title>meida quries</title>
+<style>
+
+/*mobile layout*/
+body{ 
+		display:grid;
+		grid-template-columns: auto;
+		grid-template-rows: 100px 50px 39px 20px 121px 50px;
+	}
+/*desktop layout smaller window*/
+@media (hover) and (min-width:600px) {
+	body{ 
+		display:grid;
+		grid-template-columns: 100px auto 100px;
+		grid-template-rows: 100px 500px;
+	}
+
+}
+/*desktop larger window*/
+@media (hover) and (min-width:1000px) {
+	body{ 
+		display:grid;
+		grid-template-columns: 200px auto 200px;
+		grid-template-rows: 100px 500px;
+	}
+
+}
+div:nth-child(odd){
+	background-color:pink;
+}
+div:nth-child(even){
+	background-color:green;
+}
+</style>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>

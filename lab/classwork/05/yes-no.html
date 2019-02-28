@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style>
+	html,body{heightt:100%;}
+	body{
+		margin:0;
+		display:flex;
+		justify-content: center;
+		align-items: center;
+	}
+	h1{
+		/*either vw or vh, which ever is smaller*/
+		font-size:20vmin;
+	}
+</style>
+	<title></title>
+</head>
+<body>
+
+<script>
+	var h1 = document.createElement("h1");
+	h1.innerHTML = "yes";
+// var headers = document.querySelectorAll("h1");
+	// console.log(headers);
+	// //this is the same object as if we said socument.create Element ("h1");
+	// var header = headers[0];
+	console.log(h1);
+	if (Math.random() < 0.5){
+		h1.innerHTML = "yes";
+}
+	else {h1.innerHTML = "hahahahha";}
+document.body.appendChild(h1);
+</script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>
+Generate Random Color Bar
+</title>
+</head>
+
+<body>
+<style>
+.bar{
+width: auto;
+height: 100vh;
+}
+</style>
+<script>
+var digits = 0;
+while (digits < 10) {
+var bar = document.createElement('div');
+bar.className = 'bar';
+// bar.style.height = Math.floor(Math.rancom()*1);
+bar.style.backgroundColor = 'red';
+document.body.appendChild(bar);
+digits = digits + 1;
+}
+// const helpers = {
+// generateRandomColorString: () => {
+// const h = Math.floor(Math.random() * 360);
+// const s = Math.floor(Math.random() * 100);
+// const l = Math.floor(Math.random() * 100);
+// return `hsl(${h},${s},${l})`;
+// }
+// }
+</script>
+</body>
+
+</html>

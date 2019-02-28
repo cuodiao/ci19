@@ -1,0 +1,26 @@
+<!DOCTYPE html> <!-- it tells the version of the html -->
+	<title>grid</title>
+
+	<body>
+<script>
+console.log(document);
+
+document.body.style.backgroundColor = "red";
+// create an element
+var header = document.createElement("h1");
+console.log(header);
+// put it ont he page
+document.body.appendChild(header);
+// inner html is the space between the openning and the closing tags
+header.innerHTML = "nmsl";
+
+var image = document.createElement("img");
+document.body.appendChild(image);
+//bad code//
+// image.src = "2b.jpg"
+// good code
+image.setAttribute("src","hello.gif")
+</script>
+
+
+	</body>

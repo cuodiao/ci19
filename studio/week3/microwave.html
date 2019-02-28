@@ -1,0 +1,321 @@
+<!DOCTYPE html> <!-- it tells the version of the html -->
+<link href="https://fonts.googleapis.com/css?family=Francois+One" rel="stylesheet">
+	<title>grid</title>
+	
+<script>
+	var audioElement1 = document.createElement('audio');
+audioElement1.setAttribute('autoplay','autoplay');
+audioElement1.setAttribute('src','sound1.m4a');
+var play = false;
+function toggleMusic1(event){
+	if(!play) audioElement1.play();
+	else audioElement1.pause();
+	play = !play;
+}
+	var audioElement2 = document.createElement('audio');
+audioElement2.setAttribute('autoplay','autoplay');
+audioElement2.setAttribute('src','sound2.m4a');
+var play = false;
+function toggleMusic2(event){
+	if(!play) audioElement2.play();
+	else audioElement2.pause();
+	play = !play;
+}
+	var audioElement3 = document.createElement('audio');
+audioElement3.setAttribute('autoplay','autoplay');
+audioElement3.setAttribute('src','sound3.m4a');
+var play = false;
+function toggleMusic3(event){
+	if(!play) audioElement3.play();
+	else audioElement3.pause();
+	play = !play;
+}
+
+
+	var audioElement4 = document.createElement('audio');
+audioElement4.setAttribute('autoplay','autoplay');
+audioElement4.setAttribute('src','sound4.mp3');
+var play = false;
+function toggleMusic4(event){
+	if(!play) audioElement4.play();
+	else audioElement4.pause();
+	play = !play;
+}
+
+	var audioElement = document.createElement('audio');
+audioElement.setAttribute('autoplay','autoplay');
+audioElement.setAttribute('src','sound5.mp3');
+var play = false;
+function toggleMusic5(event){
+	if(!play) audioElement.play();
+	else audioElement.pause();
+	play = !play;
+}
+	var audioElement6 = document.createElement('audio');
+audioElement6.setAttribute('autoplay','autoplay');
+audioElement6.setAttribute('src','sound1.m4a');
+var play = false;
+function toggleMusic6(event){
+	if(!play) audioElement6.play();
+	else audioElement6.pause();
+	play = !play;
+}
+	var audioElement7 = document.createElement('audio');
+audioElement7.setAttribute('autoplay','autoplay');
+audioElement7.setAttribute('src','sound7.m4a');
+var play = false;
+function toggleMusic7(event){
+	if(!play) audioElement7.play();
+	else audioElement7.pause();
+	play = !play;
+}
+	var audioElement8 = document.createElement('audio');
+audioElement8.setAttribute('autoplay','autoplay');
+audioElement8.setAttribute('src','sound2.m4a');
+var play = false;
+function toggleMusic8(event){
+	if(!play) audioElement8.play();
+	else audioElement8.pause();
+	play = !play;
+}
+	var audioElement9 = document.createElement('audio');
+audioElement9.setAttribute('autoplay','autoplay');
+audioElement9.setAttribute('src','sound3.m4a');
+var play = false;
+function toggleMusic9(event){
+	if(!play) audioElement9.play();
+	else audioElement9.pause();
+	play = !play;
+}
+</script>
+<style>
+html,body{
+	height:100%;
+}
+body{
+	display:grid;
+	grid-template-columns:auto auto auto 200px 150px 150px 200px auto auto auto;/*auto自动填补空间*/
+	grid-template-rows: auto auto 120px 120px 120px 120px 120px auto auto;
+}
+.a1,.a2,.a3,.a4,.a5,.a6,.a7,.a8,.a9{
+	font-size: 300%;
+	font-family: 'Francois One', sans-serif;
+	color: white;
+	text-align: center;
+	display: flex;
+	justify-content: center; /* align horizontal */
+	align-items: center; /* align vertical */
+}
+.a1{
+	background-color:#8CD3C7;
+	border-radius:20px;
+	transform: scaleY(0.95) scaleX(0.98);
+
+	grid-column-start:1;
+	grid-column-end:4;
+	grid-row-start:1;
+	grid-row-end:3;
+}
+.a2{
+	/*font-size: 350%;*/
+	border-radius:20px;
+	background-color:#8CD3C7;
+	transform: scaleY(0.95) scaleX(0.98);
+	grid-column-start:4;
+	grid-column-end:8;
+	grid-row-start:1;
+	grid-row-end:3;
+}
+.a3{
+	/*font-size: 500%;*/
+	background-color:#8CD3C7;
+	border-radius:20px;
+	transform: scaleY(0.95) scaleX(0.98);
+	grid-column-start:8;
+	grid-column-end:11;
+	grid-row-start:1;
+	grid-row-end:3;
+}
+.a4{
+	/*font-size: 400%;*/
+	background-color:#8CD3C7;
+	border-radius:20px;
+	transform: scaleY(0.98) scaleX(0.98);
+	grid-column-start:1;
+	grid-column-end:4;
+	grid-row-start:3;
+	grid-row-end:8;
+}
+.a5{
+	font-size: 700%;
+	background-color:#E15C5C;
+	border-radius:20px;
+	transform: scaleY(0.98) scaleX(0.98);
+	grid-column-start:4;
+	grid-column-end:8;
+	grid-row-start:3;
+	grid-row-end:8;
+}
+.a6{
+	background-color:#8CD3C7;
+	border-radius:20px;
+	transform: scaleY(0.98) scaleX(0.98);
+	position:relative;
+	grid-column-start:8;
+	grid-column-end:11;
+	grid-row-start:3;
+	grid-row-end:8;
+}
+.a7{
+	background-color:#8CD3C7;
+	border-radius:20px;
+	transform: scaleY(0.92) scaleX(0.98);
+	grid-column-start:1;
+	grid-column-end:4;
+	grid-row-start:8;
+	grid-row-end:10;
+	margin:0px;
+}
+.a8{
+	/*font-size: 300%;*/
+	background-color:#8CD3C7;
+	border-radius:20px;
+	transform: scaleY(0.95) scaleX(0.98);
+	grid-column-start:4;
+	grid-column-end:8;
+	grid-row-start:8;
+	grid-row-end:10;
+}
+.a9{
+	/*font-size: 500%;*/
+	background-color:#8CD3C7;
+	border-radius:20px;
+	transform: scaleY(0.95) scaleX(0.98);
+	grid-column-start:8;
+	grid-column-end:11;
+	grid-row-start:8;
+	grid-row-end:10;
+}
+@media not all and (hover){
+	body{
+	display:grid;
+	grid-template-columns:auto auto auto auto 200px auto auto auto auto;/*auto自动填补空间*/
+	grid-template-rows: auto auto auto auto 250px auto auto auto auto;
+}
+.a1{
+	background-color:#8CD3C7;
+	border-radius:20px;
+	transform: scaleY(0.95) scaleX(0.98);
+
+	grid-column-start:1;
+	grid-column-end:3;
+	grid-row-start:1;
+	grid-row-end:2;
+}
+.a2{
+	font-size: 350%;
+	border-radius:20px;
+	background-color:#8CD3C7;
+	transform: scaleY(0.95) scaleX(0.98);
+	grid-column-start:3;
+	grid-column-end:7;
+	grid-row-start:2;
+	grid-row-end:3;
+}
+.a3{
+	font-size: 500%;
+	background-color:#8CD3C7;
+	border-radius:20px;
+	transform: scaleY(0.95) scaleX(0.98);
+	grid-column-start:7;
+	grid-column-end:11;
+	grid-row-start:3;
+	grid-row-end:4;
+}
+.a4{
+	font-size: 400%;
+	background-color:#8CD3C7;
+	border-radius:20px;
+	transform: scaleY(0.95) scaleX(0.98);
+	grid-column-start:1;
+	grid-column-end:3;
+	grid-row-start:4;
+	grid-row-end:5;
+}
+.a5{
+	font-size: 700%;
+	background-color:#E15C5C;
+	border-radius:20px;
+	transform: scaleY(0.95) scaleX(0.98);
+	grid-column-start:3;
+	grid-column-end:8;
+	grid-row-start:5;
+	grid-row-end:6;
+}
+.a6{
+	background-color:#8CD3C7;
+	border-radius:20px;
+	transform: scaleY(0.95) scaleX(0.98);
+	position:relative;
+	grid-column-start:1;
+	grid-column-end:3;
+	grid-row-start:6;
+	grid-row-end:7;
+}
+.a7{
+	background-color:#8CD3C7;
+	border-radius:20px;
+	transform: scaleY(0.95) scaleX(0.98);
+	grid-column-start:3;
+	grid-column-end:4;
+	grid-row-start:7;
+	grid-row-end:8;
+}
+.a8{
+	font-size: 300%;
+	background-color:#8CD3C7;
+	border-radius:20px;
+	transform: scaleY(0.95) scaleX(0.98);
+	grid-column-start:4;
+	grid-column-end:8;
+	grid-row-start:8;
+	grid-row-end:9;
+}
+.a9{
+	font-size: 500%;
+	background-color:#8CD3C7;
+	border-radius:20px;
+	transform: scaleY(0.95) scaleX(0.98);
+	grid-column-start:8;
+	grid-column-end:11;
+	grid-row-start:9;
+	grid-row-end:10;
+}
+.a1,.a2,.a3,.a4,.a5,.a6,.a7,.a8,.a9{
+	grid-column-start:1;
+	grid-column-end:11;
+	font-size: 350%;
+	font-family: 'Francois One', sans-serif;
+	color: white;
+	text-align: center;
+	display: flex;
+	justify-content: center; /* align horizontal */
+	align-items: center; /* align vertical */
+}
+}
+
+</style>
+	<body>
+		<div class="a1"id="music" class="button1" onclick="toggleMusic1(event)">1.Open the microwave</div>
+		<div class="a2"id="music" class="button1" onclick="toggleMusic2(event)">2.Put your food inside</div>
+		<div class="a3"id="music" class="button1" onclick="toggleMusic3(event)">3.Close the microwave</div>
+		<div class="a4"id="music" class="button1" onclick="toggleMusic4(event)">4.Set the time</div>
+		<div class="a5"id="music" class="button1" onclick="toggleMusic5(event)">5.Press start</div>
+		<div class="a6"id="music" class="button1" onclick="toggleMusic6(event)">6.Time is up, open the microwave</div>
+		<div class="a7"id="music" class="button1" onclick="toggleMusic7(event)">7.Check your food</div>
+		<div class="a8"id="music" class="button1" onclick="toggleMusic8(event)">8.Take out your food</div>
+		<div class="a9"id="music" class="button1" onclick="toggleMusic9(event)">9.Close the microwave</div>
+
+
+
+	</body>

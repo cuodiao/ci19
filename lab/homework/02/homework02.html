@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		Generate Random Color Bar
+	</title>
+</head>
+<body>
+	<style>
+	.bar{
+		width:auto;
+		height:5vh;
+
+
+	}
+</style>
+<script>
+	var digits = 0;
+	var num = Math.floor(Math.random()*10) + 1;
+	
+	while (digits < num) {
+		var hhh = Math.floor(Math.random()*360);
+		var sss = Math.floor(Math.random()*100);
+		var lll = Math.floor(Math.random()*100);
+		var bar = document.createElement("div");
+		bar.className = "bar";
+		bar.style.backgroundColor ='hsl(' + hhh  +","+ sss + '%,' + lll + '%'+ ')';
+		bar.style.height =  100/num +"vh";		
+		document.body.appendChild(bar);
+
+		digits = digits + 1;
+		
+	}
+	
+</script>
+</body>
+</html>

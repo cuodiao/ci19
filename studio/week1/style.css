@@ -1,0 +1,26 @@
+
+.imageList{
+        overflow-x: auto;
+        overflow-y: hidden;
+        height:700px;
+        white-space: nowrap;
+        position: absolute;
+        top:120px;
+
+
+img{
+        width:auto;
+        height:auto;
+        margin-right:10px;
+      }
+ }
+ .img{
+ 	size:50%;
+ }
+ .title{
+
+
+overflow-x: auto;
+overflow-y: hidden;
+
+ }
