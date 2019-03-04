@@ -1,26 +1,32 @@
 
 #cursor {
   animation: blinker 1s step-end infinite; 
-  //you can change 'step-end' to 'linear' for smooth transition
+  background-color: white;
+  /*//you can change 'step-end' to 'linear' for smooth transition*/
 }
 @keyframes blinker {  
   50% { opacity: 0; }
 }
 
-@import url('https://fonts.googleapis.com/css?family=Space+Mono');
-body {
-        font-family: 'Space Mono', monospace;
+@import url("Tibet.otf");
+body {   background-image:url(buddha.gif);
+        background-size:1820px 1280px;
+        background-position:top;
+        background-repeat: no-repeat;
+        font-family: 'Tibet', cursive;
+        fontcolor: white;
         font-size: 72px;
         line-height: 1em;
 }
 
 #container {
-  background-color: #efefef;
+  background-color: transparent;
   width: 1000px;
   padding: 50px;
   margin: 50px auto;
   word-wrap: break-word;
   text-align:center;
+  z-index: 2;
 }
 .inner {
   /*display:block;*/

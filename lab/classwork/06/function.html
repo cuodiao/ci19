@@ -5,16 +5,28 @@
 </head>
 <body>
 	<script>
+var m = new Map([[1, 'x'], [2, 'y'], [3, 'z']]);
+m.forEach(function (value, key, map) {
+    console.log(value, key, map);
+});
+// var x = 0;
+// var n = 1;
+// while (n < 100) {
+//     x = x + n;
+//     n = n + 2;
+// }
+// console.log(x)
+// x; // 2500
 
-		//here's a function definition
+// 		//here's a function definition
 		function printName(){
 			var myname = document.createElement("p");
-			myname.innerHTML = "sunny";
+			myname.innerHTML = m.get("Michael");
 			document.body.appendChild(myname);
 		}
 
-		// here's how you run tthe function
-		printName();
+// 		// here's how you run tthe function
+		printName()
 	</script>
 
 </body>
