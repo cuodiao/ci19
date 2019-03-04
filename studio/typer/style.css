@@ -9,16 +9,27 @@
 }
 
 @import url("Tibet.otf");
+@font-face {
+  font-family: 'Tibet';
+  src: url('Tibet.eot');
+  src: local('Tibet Regular'), local('Tibet'),
+    url("Tibet.woff") format("woff"),
+    url("Tibet.otf") format("opentype"),
+    url("Tibet.svg#Tibet") format("svg");
+}
 body {   background-image:url(buddha.gif);
         background-size:1820px 1280px;
         background-position:top;
         background-repeat: no-repeat;
         font-family: 'Tibet', cursive;
-        fontcolor: white;
+        
         font-size: 72px;
         line-height: 1em;
 }
-
+.text{ 
+  font-family: 'Tibet', cursive;
+  color:white;
+}
 #container {
   background-color: transparent;
   width: 1000px;
