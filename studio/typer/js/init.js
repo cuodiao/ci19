@@ -22,7 +22,7 @@
     var rhythm17 =[1, 6, 4, 0 ,4];
     var rhythm18 =[1, 3, 1, 0 ,3];
     var rhythm19 =[0, 3, 2 ,0, 4];
-    var rhythm20 =[4, 2, 1, 0 ,4];
+    var rhythm20 =[4, 2, 1, 0 ,7];
     var rhythm21 =[2, 4, 1, 2 ,3];
     var rhythm22 =[0, 1, 2 ,1, 4];
     var rhythm23 =[1, 4, 1, 0 ,4];
