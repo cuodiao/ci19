@@ -135,7 +135,24 @@
       }
 
     });
-
+var audioElement1 = document.createElement('audio');
+audioElement1.setAttribute('autoplay','autoplay');
+audioElement1.setAttribute('src','sound11.wav');
+var play = false;
+function toggleMusic1(event){
+  if(!play) audioElement1.play();
+  else audioElement1.pause();
+  
+}
+function deleteAll() {
+  $(".inner").remove();
+}
+function receiveThis() {
+  $('.ha').append('<div class = "no"><span>Buddha heard your voice</span></div>');
+}
+// function xiaoShi(){
+//    document.body.style.opacity = 0;
+// }
 
 //Set Interval, looping through and playing the song
 setInterval(function(){ 
@@ -249,5 +266,6 @@ function createElement(k) {
 function deleteElement() {
   $(".inner").last().remove();
 }
+
 });
 

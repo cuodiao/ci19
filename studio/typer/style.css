@@ -45,3 +45,40 @@ body {   /*background-image:url(buddha.gif);
 .inner {
   /*display:block;*/
 }
+.no{
+  text-align: center;
+  vertical-align: middle;
+  align-content: center;
+  top:1000px;
+  position:relative;
+  top:400px;
+  left:400px;
+  animation: mymove 500s ;
+  animation-iteration-count: 1;
+  position: fixed;
+}
+.ha{
+  vertical-align: middle;
+  top:1000px;
+}
+.button{
+  position:relative;
+  align-content: center;
+  top:700px;
+  text-align: center;
+  vertical-align: center;
+  background-image: "lotus.png";
+  animation: zhuan 4s;
+  size:200px 200px;
+  z-index:30;
+}
+@keyframes mymove {
+  0%   {color:rgba(255, 255, 255, 0.0);}
+  0.25%  {color:rgba(255, 255, 255, 1);}
+  0.75%  {color:rgba(255, 255, 255, 0);}
+  100% {color:rgba(255, 255, 255, 0.0);}
+@keyframes zhuan {
+  0%   {transform:rotateZ(0deg);}
+  25%  {transform:rotateZ(30deg);}
+  75%  {transform:rotateZ(90deg);}
+  100% {transform:rotateZ(360deg);}
