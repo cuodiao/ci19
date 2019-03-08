@@ -4,10 +4,10 @@
 
     // Notenumbers between 0-4
     var rhythm1 =[0, 1, 6 ,3, 4];
-    var rhythm2 =[1, 3, 1, 2 ,4];
-    var rhythm3 =[2, 4, 1, 2 ,3];
-    var rhythm4 =[0, 4, 2 ,1, 4];
-    var rhythm5 =[3, 2, 4, 2 ,6];
+    var rhythm2 =[1, 3, 0, 2 ,4];
+    var rhythm3 =[2, 4, 1, 6 ,3];
+    var rhythm4 =[0, 2, 3 ,1, 4];
+    var rhythm5 =[3, 5, 4, 2 ,6];
     var rhythm6 =[2, 4, 1, 5 ,3];
     var rhythm7 =[0, 3, 2 ,1, 4];
     var rhythm8 =[0, 2, 1, 3 ,4];
@@ -17,25 +17,25 @@
     var rhythm12 =[2, 4, 3, 0 ,1];
     var rhythm13 =[2, 5, 0 ,4, 2];
     var rhythm14 =[3, 2, 1, 4 ,0];
-    var rhythm15 =[2, 6, 1, 0 ,2];
-    var rhythm16 =[0, 3, 1 ,0, 4];
-    var rhythm17 =[1, 6, 4, 0 ,4];
-    var rhythm18 =[1, 3, 1, 0 ,3];
-    var rhythm19 =[0, 3, 2 ,0, 4];
+    var rhythm15 =[3, 6, 1, 0 ,2];
+    var rhythm16 =[5, 3, 1 ,0, 4];
+    var rhythm17 =[1, 6, 2, 0 ,4];
+    var rhythm18 =[1, 5, 2, 0 ,3];
+    var rhythm19 =[0, 3, 2 ,1, 4];
     var rhythm20 =[4, 2, 1, 0 ,7];
-    var rhythm21 =[2, 4, 1, 2 ,3];
-    var rhythm22 =[0, 1, 2 ,1, 4];
-    var rhythm23 =[1, 4, 1, 0 ,4];
+    var rhythm21 =[2, 4, 1, 0 ,3];
+    var rhythm22 =[0, 1, 2 ,3, 4];
+    var rhythm23 =[1, 3, 2, 0 ,4];
     var rhythm24 =[1, 7, 0, 2 ,3];
     var rhythm25 =[2, 1, 0 ,3, 4];
     var rhythm26 =[4, 2, 3, 0 ,4];
     var rhythm27 =[4, 2, 1, 3 ,0];
-    var rhythm28 =[0, 2, 3 ,1, 0];
-    var rhythm35 =[0, 1, 5, 3, 4];
+    var rhythm28 =[4, 2, 3 ,1, 0];
+    var rhythm35 =[6,6,6,6,6];
     var rhythm36 =[0, 1, 6 ,3, 4];
-    var rhythm37 =[0, 3, 6 ,3, 4];
+    var rhythm37 =[0, 5, 6 ,3, 4];
     var rhythm38 =[0, 2, 7 ,3, 4];
-    var currentRhythm = rhythm1;
+    var currentRhythm = rhythm35;
     var interval = 1000;
 
     console.log(audios);
@@ -138,6 +138,9 @@
 var audioElement1 = document.createElement('audio');
 audioElement1.setAttribute('autoplay','autoplay');
 audioElement1.setAttribute('src','sound11.wav');
+var audioElement2 = document.createElement('audio');
+audioElement2.setAttribute('autoplay','autoplay');
+audioElement2.setAttribute('src','sound11.wav');
 var play = false;
 function toggleMusic1(event){
   if(!play) audioElement1.play();
@@ -149,6 +152,11 @@ function deleteAll() {
 }
 function receiveThis() {
   $('.ha').append('<div class = "no"><span>Buddha heard your voice</span></div>');
+}
+function toggleMusic2(event){
+  if(!play) audioElement2.play();
+  else audioElement2.pause();
+  
 }
 // function xiaoShi(){
 //    document.body.style.opacity = 0;
@@ -165,7 +173,7 @@ setInterval(function(){
 
 
    function playSong(i) {
-    index == i[Math.floor(Math.random()*5)];
+    index == i[0];
 
       if(index == i[0]) {
         index = i[1];
@@ -179,9 +187,10 @@ setInterval(function(){
       else if(index == i[3]) {
         index = i[4];
       }
-      else if(index == i[4]) {
+      else  {
         index = i[0];
       }
+      console.log(index);
       
    }
 // above everything is working for the sound effect

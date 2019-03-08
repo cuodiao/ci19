@@ -61,6 +61,16 @@ body {   /*background-image:url(buddha.gif);
   vertical-align: middle;
   top:1000px;
 }
+.life{position:relative;
+  
+  top:100px;
+  
+  vertical-align: center;
+  
+  size:200px 200px;
+  z-index:30;
+
+}
 .button{
   position:relative;
   align-content: center;
@@ -68,17 +78,21 @@ body {   /*background-image:url(buddha.gif);
   text-align: center;
   vertical-align: center;
   background-image: "lotus.png";
-  animation: zhuan 4s;
+  animation: zhuan 2s;
   size:200px 200px;
   z-index:30;
+  animation-iteration-count: infinite;
 }
 @keyframes mymove {
   0%   {color:rgba(255, 255, 255, 0.0);}
   0.25%  {color:rgba(255, 255, 255, 1);}
   0.75%  {color:rgba(255, 255, 255, 0);}
   100% {color:rgba(255, 255, 255, 0.0);}
+}
 @keyframes zhuan {
-  0%   {transform:rotateZ(0deg);}
-  25%  {transform:rotateZ(30deg);}
-  75%  {transform:rotateZ(90deg);}
-  100% {transform:rotateZ(360deg);}
+  0%   {transform:rotateY(0deg);}
+  25%  {transform:rotateY(90deg);}
+  75%  {transform:rotateY(180deg);}
+  100% {transform:rotateY(360deg);}
+}
+

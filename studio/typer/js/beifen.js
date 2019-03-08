@@ -211,7 +211,7 @@ function createElement(k) {
 
  
   var elem = $('#cursor');
-  if (k == "a" || k == "A") { elem.before('<span class="inner">A</span>'); }
+  if (k == "a" || k == "A") { elem.before('<span class="inner"><img class="life" src="lotus.png"></span>'); }
   if (k == "b" || k == "B") { elem.before('<span class="inner">B</span>'); }
   if (k == "c" || k == "C") { elem.before('<span class="inner">C</span>'); }
   if (k == "d" || k == "D") { elem.before('<span class="inner">D</span>'); }
