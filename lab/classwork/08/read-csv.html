@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<input type="file">
+<script>
+	document.querySelectorAll("input")[0].onchange = function(event){
+		
+		var file = event.target.files[0];
+		
+		var reader = new FileReader();
+		reader.readAsText(file,"UTF-8");
+		reader.onload = function(readerEvent){
+			didLoad(readerEvent.target.result);
+		}
+	}
+	function didLoad(text){
+		console.log(text);
+		var lines = text.split(/\r\n|\n/);
+		console.log(lines);
+	}
+	//我全程不知道教授在干嘛反正我相信全班大部分人也没听懂所以that’sokay，运行网页的时候吧csv文件上传上去之后点console看下有没有数据，这个是我们接下来的project需要的东西
+	</script>
+</body>
+
+</html>

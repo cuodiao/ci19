@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+	<title>review</title>
+<script>
+	// what are the 7 things that can go in a variable?这七种数据类型可以装进variable
+	var bool = true;
+	var string = "hi";
+	var number = 3.14;
+	var array = [];
+	var object = {};
+	var func = function(argument){};
+	//省时间省代码，argument可以改变function，可以return value
+	var nothing = undefined;
+
+	var weatherArray = [
+	5, 20, false
+	];
+
+	console.log(weatherArray);
+	console.log(weatherArray[1]);
+//我们只是列出了各种数值，但是我们不知道他们分别代表了什么，所以我们要用那object
+	var weather = {
+			temperature : 5,
+			humidity : 20,
+			isRaining : false
+	};
+
+	console.log(weather);
+	console.log(weather["humidity"])
+	console.log(weather.humidity);
+	//本质上objrct和array的区别就在于用string代替了number; .这个东西的意义就在于“inner”
+	console.log(console);
+	console["log"]("hello");
+	//所以其实console就是一个很大的object，里面还有一堆object
+	
+	var weathers = {
+		nyc:{humidity: 23,
+			temperature:[3,3,5],
+			isRaining:false},
+		shanghai:{humidity: [2,2,1],
+				temperature: 29,
+				isRaining:true}
+
+
+	};
+
+	console.log(weathers);
+	console.log(weathers.nyc.temperature[2]);
+	//一层一层进去找到你想要的那个value就这样找。。。
+	// level 1: "nyc", "shanghai"
+		// level 2: "temperature" ...
+		// level 3 for temperature only : array numbers 
+</script>
