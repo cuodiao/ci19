@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script>
+
+	// load our jason file.
+	var url = "https://raw.githubusercontent.com/cuodiao/ci19/master/lab/classwork/09/mydata.json"
+	fetch(url)
+	.then(function(response){return response.json();})
+	.then(function(json){ console.log(json);})
+</script>
+</body>
+</html>
