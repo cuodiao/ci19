@@ -8,7 +8,7 @@
 
 	// load our jason file.
 	// var url = "https://raw.githubusercontent.com/cuodiao/ci19/master/studio/collection/mydata.json"；
-	var url = "mydata.json";
+	var url = "https://raw.githubusercontent.com/cuodiao/ci19/master/studio/collection/mydata.json";
 	var dataArray = [];
 	fetch(url)
 	.then(function(response){return response.json();})
@@ -22,11 +22,12 @@
 		console.log(data);
 		dataArray = data;
 		var i = getRandomInt(100);
-	var image = document.createElement("h1");
+	var image = document.createElement("img");
 	
 	document.body.appendChild(image);
+	console.log(data[i].image)
 	
-	image.innerHTML = data[i].image;
+	image.src = data[i].image;
 
 // for(var i = 0; i < data.length; i = i + 1){
 // 	var kind = document.createElement("h1");
