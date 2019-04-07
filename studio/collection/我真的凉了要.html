@@ -89,15 +89,7 @@ img{
 	image.src = data[i].image;
 	 var array = [
   "image/1.png",
-  "image/2.png",
-  "image/3.png",
-  "image/4.png",
-  "image/5.png",
-  "image/6.png",
-  "image/7.png",
-  "image/8.png",
-  "image/9.png",
-  "image/10.png",
+  
   ]; 
 
   var button = document.getElementById('button');
@@ -143,9 +135,9 @@ document.getElementById('words').innerHTML = words;
 
   } else {
     //get thre picture numbers
-    var picNum1 = Math.floor(Math.random() * (maxPic - minPic)) + minPic;
-    var picNum2 = Math.floor(Math.random() * (maxPic - minPic)) + minPic;
-    var picNum3 = Math.floor(Math.random() * (maxPic - minPic)) + minPic;
+    var picNum1 = getRandomInt(100);
+    var picNum2 = getRandomInt(100);
+    var picNum3 = getRandomInt(100);
 
 
     //get 3 picture sources

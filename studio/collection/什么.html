@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>collection</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+<link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+</head>
+<body>
+
+<div class="age">
+<div class = "content">
+ <p onclick="changeText(this)">Age 3-5</p >
+ <p onclick="changeText2(this)">Age 6-12</p >
+ <p>Age 13-15</p >
+ <p>Age 16-18</p >
+ <p>Age now</p >
+ </div>
+</div>
+
+
+<div class="game"></div>
+
+
+<div class="time"> 
+ <div class = "blank"></div>
+ <div class = "content">
+ <p style = "color: #45285B;">3000-1000 B.C.</p >
+ <p style = "color: #851D40;">1000-0 B.C.</p >
+ <p style = "color: #A53956;">0-500A.D.</p >
+ <p style = "color: #E8435F;">500-1500A.D.</p >
+ <p style = "color: #F19794;">16th century</p >
+ <p style = "color: #EE8314;">17th century</p >
+ <p style = "color: #F5BB19;">18th century</p >
+ <p style = "color: #F6CAA9;">19th century</p >
+ <p style = "color: #C5C5A5;">20th century</p >
+ <p style = "color: #7FAC97;">contemporary</p >
+
+ </div>
+</div>
+
+    
+<script>
+var diyizu
+var dierzu
+var url = "https://raw.githubusercontent.com/WenpeiWang/ci19/master/studio/collection/mydata.json"
+ fetch(url)
+ .then(function(response){return response.json();})
+ .then(function(json){ buildPage(json);})
+
+ function buildPage(data){
+for(var i = 0; i < data.length; i = i + 1){
+ var one = document.createElement("h1");
+ var two = document.createElement("h1");
+ one.classList.add("diyizu");
+ two.classList.add("dierzu");
+ // var image = document.createElement("h2");
+ // var die = document.createElement("h3");
+ document.body.appendChild(one);
+ document.body.appendChild(two);
+ // document.body.appendChild(image);
+ // document.body.appendChild(die);
+ one.innerHTML = data[i].one;
+ two.innerHTML = data[i].two;
+
+ // image.innerHTML = data[i].image;
+ // die.innerHTML = data[i].die;
+
+ // var image = document.createElement("img");
+ // image.setAttribute("src", data[i].url);
+ // document.body.appendChild(image);
+
+
+ // if(data[i].kind == "water"){
+ //  kind.style.color = "blue";
+ // }
+ // if(data[i].kind == "coke"){
+ //  kind.style.color = "brown";
+ // }
+ // if(data[i].kind == "amazingmango"){
+ //  kind.style.color = "red";  
+ // }
+ 
+}
+}
+var diyizu = document.getElementsByClassName("diyizu");
+  var dierzu = document.getElementsByClassName("dierzu");
+function changeText(id) {
+  
+  for(var i = 0; i < diyizu.length; i++){
+  
+  diyizu[i].style.display = "block";
+}
+}
+
+function changeText2(id) {
+  
+  for(var i = 0; i < dierzu.length; i++){
+  
+ 
+  dierzu[i].style.display = "block";
+  
+}
+  
+ for(var i = 0; i < diyizu.length; i++){
+  
+ 
+  diyizu[i].style.display = "none";
+  
+}
+  
+}
+
+
+</script>
+<style>
+.diyizu{
+	display:none;
+}
+.dierzu{
+	display:none;
+}
+</style>
+</body>
+</html>
