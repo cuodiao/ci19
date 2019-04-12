@@ -1,60 +1,185 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<link href="https://fonts.googleapis.com/css?family=Dokdo" rel="stylesheet">
   <title>
     
   </title>
 </head>
 <body>
+	<img class = "back" src="image/tiger.png">
+	<img id = "gif1" class = "gif" src="image/slot.gif" height="200" width="200">
+	<img id = "gif2" class = "gif" src="image/slot2.gif" height="200" width="200">
+	<img id = "gif3" class = "gif" src="image/slot3.gif" height="200" width="200">
+	<img class = "but1" src="image/bone.png">
+	<img class = "but2" src="image/skull.png">
+	<img class = "click" src="image/click.png">
   <style>
-  #button{
-    width : 100px; 
-    height: 100px;
-    background-color: blue;
-    position: absolute;
-  top: 50%;
-  right: 50%;
- left:50%;
- margin-right: -50%;
-    transform: translate(-50%, -50%) 
+  .back{
+  	 position: absolute;
+  	 top:-20%;
+  	 z-index: 3;
   }
+  .gif{
 
-#img01{
-    width : 100px; 
-    height: 100px;
+  }
+  #gif1{
+  	width : 200px; 
+    height: 200px;
+    display:none;
+    z-index: 2;
 
     position: absolute;
-    left:400px;
+    left:26%;
     top:25%;
-}
-#img02{
+  }
+  #gif2{
+  	width : 200px; 
+    height: 200px;
+    z-index: 2;
+
+    position: absolute;
+    display:none;
+    top:25%;
+   
+    left: 44%;
+    margin-right: -50%;
+   
+  }
+  #gif3{
+  	 width : 200px; 
+    height: 200px;
+    z-index: 2;
+
+    display:none;
+    position: absolute;
+    right:27%;
+    top:25%;
+
+  }
+  #button{
     width : 100px; 
     height: 100px;
     
     position: absolute;
+  top: 59%;
+  right: 50%;
+ left:50%;
+ margin-right: -50%;
+    transform: translate(-50%, -50%) ;
+    z-index:4;
+    background-color:transparent;
+    opacity:0;
+  }
+.but1{
+  position: absolute;
+  top: 48.5%;
+  right: 50%;
+  left:41%;
+  margin-right: -50%;
+  
+  z-index:4;
+  animation-name: shake;
+  animation-duration: 2s;
+}
+.but2{
+
+ position: absolute;
+  top: 48.5%;
+  right: 50%;
+  left:41%;
+  margin-right: -50%;
+  
+  z-index:4;
+  animation-name: shakey;
+  animation-duration: 2s;
+}
+
+#img01{
+    width : 160px; 
+    height: 160px;
+    
+    size:80%;
+    position: absolute;
+    left:27%;
+    top:28%;
+}
+#img02{
+    width : 160px; 
+    height: 160px;
+    
+    position: absolute;
    
-    top:30%;
-   
-    left: 50%;
+    top:28%;
+    size:80%;
+    left: 45%;
     margin-right: -50%;
-    transform: translate(-50%, -50%) 
+    
 }
 #img03{
-    width : 100px; 
-    height: 100px;
+    width : 160px; 
+    height: 160px;
+    size:80%;
 
     position: absolute;
-    right:400px;
-    top:25%;
+    right:28%;
+    top:28%;
 }
 #words{
 position: absolute;
-    top: 50%;
+    top: 85%;
     left: 50%;
     margin-right: -50%;
-    transform: translate(-50%, -50%) 
+    transform: translate(-50%, -50%) ;
+    display:none;
+    font-family: 'Dokdo', cursive;
+    font-size: 34pt;
+     white-space: pre-wrap;
+     width:80%;
+}
+.click{
+	position: absolute;
+
+	left:58%;
+	top:50%;
 }
 
+  @keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
+@keyframes shakey {
+  10%, 90% {
+    transform: rotate(5deg);
+  }
+  
+  20%, 80% {
+    transform: rotate(-5deg);
+  }
+
+  30%, 50%, 70% {
+    transform: rotate(5deg);
+  }
+
+  40%, 60% {
+	transform: rotate(-5deg);
+  }
+}
+
+}
 img{
   width: 100px；
 }
@@ -67,6 +192,22 @@ img{
 <div id = "words">lalala</div>
 
 <script>
+	function setToBlack ( )
+{
+  document.getElementById("gif1").style.display = "none";
+}
+function setToBlack1 ( )
+{
+  document.getElementById("gif2").style.display = "none";
+}
+function setToBlack2 ( )
+{
+  document.getElementById("gif3").style.display = "none";
+}
+function setToWords ( )
+{
+  document.getElementById("words").style.display = "block";
+}
 	var url = "https://raw.githubusercontent.com/cuodiao/ci19/master/studio/collection/mydata.json";
 	var dataArray = [];
 	fetch(url)
@@ -101,6 +242,15 @@ img{
 
 //add event listener to the button
 button.addEventListener('click', function(){
+	
+  document.getElementById("gif1").style.display = "block";
+  setTimeout ( "setToBlack()", 2000 );
+  document.getElementById("gif2").style.display = "block";
+  setTimeout ( "setToBlack1()", 2100 );
+  document.getElementById("gif3").style.display = "block";
+  setTimeout ( "setToBlack2()", 2200 );
+  document.getElementById("words").style.display = "none";
+  setTimeout ( "setToWords()", 2200 );
 
   //come up with random either to see if this is a winning turn or a losing turn and to get pictures 
   var minWin = 0;
@@ -157,6 +307,8 @@ document.getElementById('words').innerHTML = words;
     document.getElementById('words').innerHTML = words;
 
   }
+  
+
 
 
 //when you click the button 
