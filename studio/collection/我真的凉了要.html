@@ -14,7 +14,30 @@
 	<img class = "but1" src="image/bone.png">
 	<img class = "but2" src="image/skull.png">
 	<img class = "click" src="image/click.png">
+	<img class = "kuang1" src="image/kuang1.png">
+	<img class = "kuang2" src="image/kuang2.png">
+	<img class = "kuang3" src="image/kuang3.png">
   <style>
+  .kuang1{
+  	position: absolute;
+    left:24%;
+    top:24%;
+    z-index: 10;
+  }
+  .kuang2{
+  	position: absolute;
+    
+    top:24%;
+   z-index: 10;
+    left: 42%;
+    margin-right: -50%;
+  }
+  .kuang3{
+  	position: absolute;
+    right:25%;
+    top:24%;
+    z-index: 10;
+  }
   .back{
   	 position: absolute;
   	 top:-20%;
@@ -80,7 +103,7 @@
   
   z-index:4;
   animation-name: shake;
-  animation-duration: 2s;
+  animation: shake 2s infinite;
 }
 .but2{
 
@@ -92,7 +115,7 @@
   
   z-index:4;
   animation-name: shakey;
-  animation-duration: 2s;
+  animation: shakey 2s infinite;
 }
 
 #img01{
@@ -254,7 +277,7 @@ button.addEventListener('click', function(){
 
   //come up with random either to see if this is a winning turn or a losing turn and to get pictures 
   var minWin = 0;
-  var maxWin = 3;
+  var maxWin = 2;
 
   var minPic = 0;
   var maxPic = 9;
@@ -303,7 +326,7 @@ document.getElementById('words').innerHTML = words;
 
     //image 3
     img03.src = data[picNum3].image;
-    words = "You lose! You are still alive";
+    words = "You lose! You are still alive！";
     document.getElementById('words').innerHTML = words;
 
   }
