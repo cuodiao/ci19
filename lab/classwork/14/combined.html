@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+<head>
+	 <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+	<title></title>
+	<script src="jquery-3.3.1.min.js"></script>
+	<style>
+		 #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #floating-panel {
+        position: absolute;
+        top: 10px;
+        left: 25%;
+        z-index: 5;
+        background-color: #fff;
+        padding: 5px;
+        border: 1px solid #999;
+        text-align: center;
+        font-family: 'Roboto','sans-serif';
+        line-height: 30px;
+        padding-left: 10px;
+      }
+		input {
+    
+}
+		#input{
+			position:absolute;
+			top:50%;
+			left:4%;
+			width:200px;
+			border: 5px solid white; 
+    -webkit-box-shadow: 
+      inset 0 0 8px  rgba(0,0,0,0.1),
+            0 0 16px rgba(0,0,0,0.1); 
+    -moz-box-shadow: 
+      inset 0 0 8px  rgba(0,0,0,0.1),
+            0 0 16px rgba(0,0,0,0.1); 
+    box-shadow: 
+      inset 0 0 8px  rgba(0,0,0,0.1),
+            0 0 16px rgba(0,0,0,0.1); 
+    padding: 15px;
+    background: rgba(255,255,255,0.5);
+    margin: 0 0 10px 0;
+			
+		}
+		#button{
+			position:absolute;
+			top:50%;
+			left:50%;
+			width:50px;
+
+		}
+		#button{
+			border: 5px solid white; 
+    -webkit-box-shadow: 
+      inset 0 0 8px  rgba(0,0,0,0.1),
+            0 0 16px rgba(0,0,0,0.1); 
+    -moz-box-shadow: 
+      inset 0 0 8px  rgba(0,0,0,0.1),
+            0 0 16px rgba(0,0,0,0.1); 
+    box-shadow: 
+      inset 0 0 8px  rgba(0,0,0,0.1),
+            0 0 16px rgba(0,0,0,0.1); 
+    padding: 15px;
+    background: rgba(255,255,255,0.5);
+    margin: 0 0 10px 0;
+		}
+	
+	</style>
+</head>
+<body>
+
+   <!--  <div id="floating-panel">
+    <b>Mode of Travel: </b>
+    <select id="mode">
+      <option value="DRIVING">Driving</option>
+      <option value="WALKING">Walking</option>
+      <option value="BICYCLING">Bicycling</option>
+      <option value="TRANSIT">Transit</option>
+    </select>
+    </div> -->
+    <div id="map"></div>
+	<form>
+ <input type="text" id="input" value= "WHERE ARE YOU NOW?????" onclick="empty()"/>
+<div id="button" onclick="formdata()"/>
+
+</form>
+
+<script type="text/javascript">
+	console.log("empty");
+var input= document.getElementById("input").value;
+function empty(){
+
+document.getElementById("input").value = " ";
+
+
+}
+$("#input").keyup(function(event) {
+    if (event.keyCode === 13) {
+    	
+        $("#button").click();
+    }
+});
+function formdata() 
+{
+var input= document.getElementById("input").value;
+var res = input.split(" ");
+  console.log(res);
+  var i;
+  var text = "";
+for (i = 0; i < res.length-1; i++) { 
+  text += res[i] + "+";
+}
+text = text + res[res.length-1]
+console.log(text);
+link = "https://maps.googleapis.com/maps/api/geocode/json?address="+text+"&key=AIzaSyBnhFso--q7-aYSPv4MLwahvovMQO3CeBQ";
+console.log(link);
+var url = link;
+	var dataArray = [];
+	fetch(url)
+	.then(function(response){return response.json();})
+	.then(function(json){ buildPage(json);})
+
+	function buildPage(data){
+		console.log(data);
+		dataArray = data;
+		
+	
+	
+	
+	console.log(data.results[0].geometry.location.lat);
+	var lat = data.results[0].geometry.location.lat;
+	var lng = data.results[0].geometry.location.lng;
+	var lat0 = data.results[0].geometry.location;
+	near = "https://cors.io/?https://maps.googleapis.com/maps/api/place/nearbysearch/json?location="+lat+","+lng+"&radius=1500&keyword=toilet&key=AIzaSyBnhFso--q7-aYSPv4MLwahvovMQO3CeBQ"
+	console.log(near);
+	fetch(near)
+	.then(function(response){return response.json();})
+	.then(function(json){ buildPage(json);})
+
+	function buildPage(data1){
+		console.log(data1);
+		dataArray = data1;
+		var lat1 = data1.results[0].geometry.location;
+		var lng1 = data1.results[0].geometry.location.lng;
+		console.log(lat1);
+		var start = lat0;
+		var end = lat1;
+		update(start, end);
+		// var start = "{lat:" + lat + "," + "lng:" + lng + "}";
+		// var end = "{lat:" + lat1 + "," + "lng:" + lng1 + "}";
+		console.log(start);
+
+		console.log(end);
+	 var array = [
+
+  
+  ]; 
+}
+}
+}
+var directionsDisplay;
+var directionsService;
+        // var origin = {lat: 37.97, lng: -122.447};  // Haight.
+        // var destination = {lat: 37.768, lng: -122.511};  // Ocean Beach.
+
+      function initMap() {
+        directionsDisplay = new google.maps.DirectionsRenderer;
+        directionsService = new google.maps.DirectionsService;
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 14,
+          center: {lat: 37.77, lng: -122.447}
+        });
+        directionsDisplay.setMap(map);
+
+        calculateAndDisplayRoute(directionsService, directionsDisplay);
+        document.getElementById('mode').addEventListener('change', function() {
+          calculateAndDisplayRoute(directionsService, directionsDisplay);
+        });
+      }
+
+      function update(start, end){
+      	      // to update change the origin and destiation
+      // call this function calculateAndDisplayRoute(directionsService, directionsDisplay);
+      	origin = start;
+      	destination = end;
+      	// better than the below - look at triggering #mode did change
+      	calculateAndDisplayRoute(directionsService, directionsDisplay);
+      }
+
+
+
+      function calculateAndDisplayRoute(directionsService, directionsDisplay) {
+        var selectedMode = document.getElementById('mode').value;
+        directionsService.route({
+          origin: origin,  // Haight.
+          destination: destination,  // Ocean Beach.
+          // Note that Javascript allows us to access the constant
+          // using square brackets and a string value as its
+          // "property."
+          travelMode: google.maps.TravelMode[selectedMode]
+        }, function(response, status) {
+          if (status == 'OK') {
+            directionsDisplay.setDirections(response);
+          } else {
+            window.alert('Directions request failed due to ' + status);
+          }
+        });
+      }
+</script>
+<script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBnhFso--q7-aYSPv4MLwahvovMQO3CeBQ&callback=initMap">
+    </script>
+</body>
+</html>

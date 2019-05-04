@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style>
+		input {
+    
+}
+		#input{
+			position:absolute;
+			top:50%;
+			left:4%;
+			width:200px;
+			border: 5px solid white; 
+    -webkit-box-shadow: 
+      inset 0 0 8px  rgba(0,0,0,0.1),
+            0 0 16px rgba(0,0,0,0.1); 
+    -moz-box-shadow: 
+      inset 0 0 8px  rgba(0,0,0,0.1),
+            0 0 16px rgba(0,0,0,0.1); 
+    box-shadow: 
+      inset 0 0 8px  rgba(0,0,0,0.1),
+            0 0 16px rgba(0,0,0,0.1); 
+    padding: 15px;
+    background: rgba(255,255,255,0.5);
+    margin: 0 0 10px 0;
+			
+		}
+		#button{
+			position:absolute;
+			top:50%;
+			left:50%;
+			width:50px;
+
+		}
+		#button{
+			border: 5px solid white; 
+    -webkit-box-shadow: 
+      inset 0 0 8px  rgba(0,0,0,0.1),
+            0 0 16px rgba(0,0,0,0.1); 
+    -moz-box-shadow: 
+      inset 0 0 8px  rgba(0,0,0,0.1),
+            0 0 16px rgba(0,0,0,0.1); 
+    box-shadow: 
+      inset 0 0 8px  rgba(0,0,0,0.1),
+            0 0 16px rgba(0,0,0,0.1); 
+    padding: 15px;
+    background: rgba(255,255,255,0.5);
+    margin: 0 0 10px 0;
+		}
+	
+	</style>
+</head>
+<body>
+	<form>
+ <input type="text" id="input" value= "WHERE ARE YOU NOW?????" onclick="empty()"/>
+<div id="button" value="Find your toilet!" onclick="formdata()"/>
+
+</form>
+
+<script type="text/javascript">
+var input= document.getElementById("input").value;
+function empty(){
+
+document.getElementById("input").value = " ";
+
+
+}
+function formdata() 
+{
+var input= document.getElementById("input").value;
+var res = input.split(" ");
+  console.log(res);
+  var i;
+  var text = "";
+for (i = 0; i < res.length-1; i++) { 
+  text += res[i] + "+";
+}
+text = text + res[res.length-1]
+console.log(text);
+link = "https://maps.googleapis.com/maps/api/geocode/json?address="+text+"&key=AIzaSyBnhFso--q7-aYSPv4MLwahvovMQO3CeBQ";
+console.log(link);
+var url = link;
+	var dataArray = [];
+	fetch(url)
+	.then(function(response){return response.json();})
+	.then(function(json){ buildPage(json);})
+
+	function buildPage(data){
+		console.log(data);
+		dataArray = data;
+		
+	
+	
+	
+	console.log(data.results[0].geometry.location.lat);
+	var lat = data.results[0].geometry.location.lat;
+	var lng = data.results[0].geometry.location.lng;
+	near = "https://cors.io/?https://maps.googleapis.com/maps/api/place/nearbysearch/json?location="+lat+","+lng+"&radius=1500&keyword=toilet&key=AIzaSyBnhFso--q7-aYSPv4MLwahvovMQO3CeBQ"
+	console.log(near);
+	fetch(near)
+	.then(function(response){return response.json();})
+	.then(function(json){ buildPage(json);})
+
+	function buildPage(data1){
+		console.log(data1);
+		dataArray = data1;
+		var lat1 = data1.results[0].geometry.location.lat;
+		var lng1 = data1.results[0].geometry.location.lng;
+		console.log(lat1);
+		update(start, end);
+	 var array = [
+
+  
+  ]; 
+}
+}
+}
+</script>
+</body>
+</html>

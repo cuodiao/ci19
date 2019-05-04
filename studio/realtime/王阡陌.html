@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title></title>
+ <style>
+  input {
+    
+}
+body{
+  
+}
+#background{
+  
+  height:100vh;
+  width:100vw;
+  }
+  #input{
+   position:absolute;
+   top:50%;
+   left:4%;
+   width:200px;
+   border: 5px solid white; 
+    -webkit-box-shadow: 
+      inset 0 0 8px  rgba(0,0,0,0.1),
+            0 0 16px rgba(0,0,0,0.1); 
+    -moz-box-shadow: 
+      inset 0 0 8px  rgba(0,0,0,0.1),
+            0 0 16px rgba(0,0,0,0.1); 
+    box-shadow: 
+      inset 0 0 8px  rgba(0,0,0,0.1),
+            0 0 16px rgba(0,0,0,0.1); 
+    padding: 15px;
+    background: rgba(255,255,255,0.5);
+    margin: 0 0 10px 0;
+   
+  }
+  #button{
+   position:absolute;
+   top:50%;
+   left:50%;
+   width:50px;
+
+  }
+  #button{
+   border: 5px solid white; 
+    -webkit-box-shadow: 
+      inset 0 0 8px  rgba(0,0,0,0.1),
+            0 0 16px rgba(0,0,0,0.1); 
+    -moz-box-shadow: 
+      inset 0 0 8px  rgba(0,0,0,0.1),
+            0 0 16px rgba(0,0,0,0.1); 
+    box-shadow: 
+      inset 0 0 8px  rgba(0,0,0,0.1),
+            0 0 16px rgba(0,0,0,0.1); 
+    padding: 15px;
+    background: rgba(255,255,255,0.5);
+    margin: 0 0 10px 0;
+  }
+ 
+ </style>
+</head>
+<body>
+  <div id = background></div>
+ <form>
+ <input type="text" id="input" value= "parsons school of design" onclick="empty()"/>
+<div id="button" value="Find your toilet!" onclick="formdata()"/>
+
+</form>
+
+<script type="text/javascript">
+var input= document.getElementById("input").value;
+function empty(){
+
+document.getElementById("input").value = " ";
+
+
+}
+function formdata() 
+{
+var input= document.getElementById("input").value;
+var res = input.split(" ");
+  console.log(res);
+  var i;
+  var text = "";
+for (i = 0; i < res.length-1; i++) { 
+  text += res[i] + "+";
+}
+text = text + res[res.length-1]
+console.log(text);
+link = "https://maps.googleapis.com/maps/api/geocode/json?address="+text+"&key=AIzaSyAe0kDZllX4ose10ItYXivlFxH6kT1-jvw";
+console.log(link);
+var url = link;
+ var dataArray = [];
+ fetch(url)
+ .then(function(response){return response.json();})
+ .then(function(json){ buildPage(json);})
+
+ function buildPage(data){
+  console.log(data);
+  dataArray = data;
+  
+ 
+ 
+ 
+ console.log(data.results[0].geometry.location.lat);
+
+ console.log(data.results[0].geometry.location.lng);
+ var lat = data.results[0].geometry.location.lat;
+ var lng = data.results[0].geometry.location.lng;
+ near = "https://cors.io/?https://api.darksky.net/forecast/81ce0dc882e1bfca063c3e10a1ef798f/" + lat + "," + lng;
+ console.log(near);
+ fetch(near)
+ .then(function(response){return response.json();})
+ .then(function(json){ buildPage(json);})
+
+ function buildPage(data1){
+  console.log(data1);
+  dataArray = data1;
+  console.log(data1.currently.apparentTemperature);
+  var apparentTemperature = data1.currently.apparentTemperature;
+  apparentTemperature = apparentTemperature*1.5 + 215
+  apparentTemperature = Math.floor(apparentTemperature);
+  console.log(apparentTemperature);
+  var redvalue;
+  var bluevalue;
+  var greenvalue;
+   var temperature = 'hsl(' + apparentTemperature + ', 44%, 75%)';
+  
+//   if ( apparentTemperature <=60) {
+//   redvalue = 0;
+//   bluevalue = 255;
+//   greenvalue = (60 - apparentTemperature)*4;
+// } else if(apparentTemperature >60 && apparentTemperature <= 120){
+//   redvalue = (apparentTemperature-60)*4;
+//   bluevalue = 255;
+//   greenvalue = 0;
+// } else if(apparentTemperature >120 && apparentTemperature <= 180){
+//   redvalue = 255;
+//   bluevalue = 255 - (apparentTemperature-120)*4;
+//   greenvalue = 0;
+// } else if(apparentTemperature >180 && apparentTemperature <= 255){
+//   redvalue = 255;
+//   bluevalue = 0;
+//   greenvalue = (apparentTemperature -180)*4;
+// }
+
+//   hexStringRed = redvalue.toString(16);
+//   hexStringBlue = bluevalue.toString(16);
+//   hexStringGreen = greenvalue.toString(16);
+//    if ( redvalue < 16) {
+//   hexStringRed = "0" + hexStringRed;
+//   }
+//   if ( bluevalue < 16) {
+//   hexStringBlue = "0" + hexStringBlue;
+//   }
+//   if ( greenvalue < 16) {
+//   hexStringGreen = "0" + hexStringGreen;
+//   }
+//   console.log(hexStringBlue);
+//   console.log(hexStringRed);
+//   console.log(hexStringGreen);
+//   var temperature = "#" + hexStringRed + hexStringGreen + hexStringBlue;
+  console.log(temperature);
+  document.body.style.backgroundColor = temperature;
+  
+  var array = [
+
+  
+  ]; 
+}
+}
+}
+
+</script>
+</body>
+</html>
