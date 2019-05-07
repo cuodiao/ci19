@@ -1,14 +1,101 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+<head>
+	 <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
-    <title>Places Search Box</title>
-    <style>
-      /* Always set the map height explicitly to define the size of the div
-       * element that contains the map. */
-      #map {
-        height: 0%;
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	<title></title>
+	<script src="jquery-3.3.1.min.js"></script>
+	<style>
+    .icon{
+      display:none;
+    }
+    #walking{
+      position:absolute;
+      top:30%;
+      left:20%;
+      margin-left: -141px;
+    }
+     #running{
+      position:absolute;
+      top:30%;
+      left:40%;
+      margin-left: -141px;
+    }
+     #jixian{
+      position:absolute;
+      top:30%;
+      left:60%;
+      margin-left: -141px;
+    }
+     #superman{
+      position:absolute;
+      top:30%;
+      left:80%;
+      margin-left: -141px;
+    }
+    #way1{
+position:absolute;
+    
+      left:29%;
+      margin-left: -141px;
+    }
+     #way2{
+position:absolute;
+            left:50%;
+      margin-left: -141px;
+    }
+     #way3{
+position:absolute;
+     
+      left:70%;
+      margin-left: -141px;
+    }
+     #way4{
+position:absolute;
+      
+      left:89%;
+      margin-left: -141px;
+    }
+     #waya{
+position:absolute;
+    
+      left:29%;
+      margin-left: -141px;
+    }
+     #wayb{
+position:absolute;
+            left:50%;
+      margin-left: -141px;
+    }
+     #wayc{
+position:absolute;
+     
+      left:70%;
+      margin-left: -141px;
+    }
+     #wayd{
+position:absolute;
+      
+      left:89%;
+      margin-left: -141px;
+    }
+    .words{
+      display:none;
+      z-index: 7;
+      top: 58%;
+      font-family: 'Roboto', sans-serif;
+      font-size:150%;
+    }
+    .wordsb{
+      top:68%;
+      z-index:7;
+      display: none;
+      font-family: 'Roboto', sans-serif;
+      font-size:150%;
+    }
+		 #map {
+        height: 100%;
       }
       /* Optional: Makes the sample page fill the window. */
       html, body {
@@ -16,181 +103,497 @@
         margin: 0;
         padding: 0;
       }
-      #background{
-        background-color: black;
-        height:100%;
-        width:100%;
-        z-index:1;
-      }
-      #description {
-        font-family: Roboto;
-        font-size: 15px;
-        font-weight: 300;
-      }
-
-      #infowindow-content .title {
-        font-weight: bold;
-      }
-
-      #infowindow-content {
-        display: none;
-      }
-
-      #map #infowindow-content {
-        display: inline;
-      }
-
-      .pac-card {
-        margin: 10px 10px 0 0;
-        border-radius: 2px 0 0 2px;
-        box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        outline: none;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+      #floating-panel {
+        position: absolute;
+        top: 10px;
+        left: 25%;
+        z-index: 0;
         background-color: #fff;
-        font-family: Roboto;
+        padding: 5px;
+        border: 1px solid #999;
+        text-align: center;
+        font-family: 'Roboto','sans-serif';
+        line-height: 30px;
+        padding-left: 10px;
       }
+		input {
+    
+}
+		#input{
+			position:absolute;
+			top:50%;
+			left:4%;
+			width:200px;
+			border: 5px solid white; 
+    -webkit-box-shadow: 
+      inset 0 0 8px  rgba(0,0,0,0.1),
+            0 0 16px rgba(0,0,0,0.1); 
+    -moz-box-shadow: 
+      inset 0 0 8px  rgba(0,0,0,0.1),
+            0 0 16px rgba(0,0,0,0.1); 
+    box-shadow: 
+      inset 0 0 8px  rgba(0,0,0,0.1),
+            0 0 16px rgba(0,0,0,0.1); 
+    padding: 15px;
+    background: rgba(255,255,255,0.5);
+    margin: 0 0 10px 0;
+    left: 45%;
+  margin-left: -100px;
+  top: 50%;
+  margin-top: -100px;
+			
+		}
+		#button{
+			
 
-      #pac-container {
-        padding-bottom: 12px;
-        margin-right: 12px;
-      }
+		}
+		#button{
+			border: 5px solid white; 
+    -webkit-box-shadow: 
+      inset 0 0 8px  rgba(0,0,0,0.1),
+            0 0 16px rgba(0,0,0,0.1); 
+    -moz-box-shadow: 
+      inset 0 0 8px  rgba(0,0,0,0.1),
+            0 0 16px rgba(0,0,0,0.1); 
+    box-shadow: 
+      inset 0 0 8px  rgba(0,0,0,0.1),
+            0 0 16px rgba(0,0,0,0.1); 
+    padding: 21px;
+    background: rgba(255,255,255,0.5);
+    
+    position:absolute;
+     left: 60%;
+  margin-left: -100px;
+  top: 50%;
+  margin-top: -100px;
 
-      .pac-controls {
-        display: inline-block;
-        padding: 5px 11px;
-      }
+		}
+    #cover{
+      background-color:black;
+      position:absolute;
+      top:0%;
+      left:0%;
+      opacity:0.35;
+      width:100vw;
+      height:100vh;
+      display:none;
 
-      .pac-controls label {
-        font-family: Roboto;
-        font-size: 13px;
-        font-weight: 300;
-      }
+    }
+    #balloon{
+      height:5%;
+      z-index:8;
+      position: absolute;
+      left: 60%;
+  margin-left: -100px;
+  top: 50%;
+  margin-top: -100px;
+  animation: leaves 400s ease-in-out infinite alternate;
+    }
+    @keyframes leaves {
+        0% {
+            transform: scale(1.0);
+            -webkit-transform: scale(1.0);
+        }
+        100% {
+            transform: scale(15.0);
+            -webkit-transform: scale(15.0);
+        }
+    }
 
-      #pac-input {
-        background-color: #fff;
-        font-family: Roboto;
-        font-size: 15px;
-        font-weight: 300;
-        margin-left: 12px;
-        padding: 0 11px 0 13px;
-        text-overflow: ellipsis;
-        width: 400px;
-        height:50px;
-        position:absolute;
-        left:35%;
-        top:35%;
-        z-index:2;
-      }
+	
+	</style>
+</head>
+<body>
 
-      #pac-input:focus {
-        border-color: #4d90fe;
-      }
-
-      #title {
-        color: #fff;
-        background-color: #4d90fe;
-        font-size: 25px;
-        font-weight: 500;
-        padding: 6px 12px;
-      }
-      #target {
-        width: 345px;
-      }
-    </style>
-  </head>
-  <body>
-    <div id ="background"></div>
-    <input id="pac-input" class="controls" type="text" placeholder="WHERE ARE YOU????">
+    <div id="floating-panel">
+    <b>Mode of Travel: </b>
+    <select id="mode">
+      <option value="DRIVING">Driving</option>
+      <option value="WALKING">Walking</option>
+      <option value="BICYCLING">Bicycling</option>
+      <option value="TRANSIT">Transit</option>
+    </select>
+    </div>
+    <img src = balloon.png id = "balloon" onclick="formdata()"></img>
     <div id="map"></div>
-    <script>
-      // This example adds a search box to a map, using the Google Place Autocomplete
-      // feature. People can enter geographical searches. The search box will return a
-      // pick list containing a mix of places and predicted search terms.
+    <div id = "cover"></div>
+<div id = "way1" class = "words">hellow</div>
+<div id = "way2" class = "words">afs</div>
+<div id = "way3" class = "words">fa</div>
+<div id = "way4" class = "words">fas</div>
+<div id = "waya" class = "wordsb" >hellow</div>
+<div id = "wayb" class = "wordsb" >afs</div>
+<div id = "wayc" class = "wordsb" >fa</div>
+<div id = "wayd" class = "wordsb" >fas</div>
+    <img id = "walking" class = icon src = "walking.png"></img>
+    <img id = "running" class = icon src = "running.png"></img>
+    <img id = "jixian" class = icon src = "jixian.png"></img>
+    <img id = "superman" class = icon src = "superman.png"></img>
+	<form>
+ <input type="text" id="input" value= "find the best toilet near..." onclick="empty()"/>
 
-      // This example requires the Places library. Include the libraries=places
-      // parameter when you first load the API. For example:
-      // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
+</form>
+<div id="button" type = image src = runnning.png  onclick="formdata()"/>
 
 
-      function initAutocomplete() {
+<script type="text/javascript">
+	var input = document.getElementById("input");
+
+// Execute a function when the user releases a key on the keyboard
+input.addEventListener("keydown", function(event) {
+  // Number 13 is the "Enter" key on the keyboard
+  if (event.keyCode === 13) {
+    // Cancel the default action, if needed
+    event.preventDefault();
+    // Trigger the button element with a click
+    document.getElementById("button").click();
+  }
+});
+var input= document.getElementById("input").value;
+function empty(){
+  $( "#cover" ).show();
+ $(".icon").fadeOut(300);
+ $( ".words" ).fadeOut(300);
+ $( ".wordsb" ).fadeOut(300);
+  $("button").click(function(){
+  
+   $( ".icon" ).hide();
+
+  $(".icon").delay( 800 ).fadeIn(300);
+});
+
+
+document.getElementById("input").value = " ";
+
+
+}
+function formdata() 
+{
+
+var input= document.getElementById("input").value;
+var res = input.split(" ");
+  console.log(res);
+  var i;
+  var text = "";
+for (i = 0; i < res.length-1; i++) { 
+  text += res[i] + "+";
+}
+text = text + res[res.length-1]
+console.log(text);
+link = "https://maps.googleapis.com/maps/api/geocode/json?address="+text+"&key=AIzaSyBnhFso--q7-aYSPv4MLwahvovMQO3CeBQ";
+console.log(link);
+var url = link;
+	var dataArray = [];
+	fetch(url)
+	.then(function(response){return response.json();})
+	.then(function(json){ buildPage(json);})
+
+	function buildPage(data){
+		console.log(data);
+		dataArray = data;
+		
+	
+	
+	
+	console.log(data.results[0].geometry.location.lat);
+	var lat = data.results[0].geometry.location.lat;
+	var lng = data.results[0].geometry.location.lng;
+	var lat0 = data.results[0].geometry.location;
+	near = "https://cors.io/?https://maps.googleapis.com/maps/api/place/nearbysearch/json?location="+lat+","+lng+"&radius=1500&keyword=toilet&key=AIzaSyBnhFso--q7-aYSPv4MLwahvovMQO3CeBQ"
+	console.log(near);
+	fetch(near)
+	.then(function(response){return response.json();})
+	.then(function(json){ buildPage(json);})
+var request = {
+location: gps,
+types: ['food'], //You can substitute "keyword: 'food'," (without double-quotes) here as well.
+rankBy: google.maps.places.RankBy.DISTANCE, //Note there is no quotes here, I made that mistake.
+key: key 
+};
+	function buildPage(data1){
+    $('#balloon').click(function() {
+  $('#balloon').addClass('animate');
+})
+
+    $("#input").css({top: '200px', position:'absolute'});
+    $("#button").css({top: '200px', position:'absolute'});
+    $("#balloon").css({top: '200px', position:'absolute'});
+    // $( "#input").remove();
+    // $( "#button").remove();
+
+    $( ".icon" ).delay(200).fadeIn(400);
+    $( ".words" ).show().delay(400).fadeIn(400);
+    $( ".wordsb" ).show().delay(400).fadeIn(400);
+    $( "#cover" ).hide();
+		console.log(data1);
+		dataArray = data1;
+		var lat1 = data1.results[0].geometry.location;
+    var lat2 = data1.results[0].geometry.location.lat;
+		var lng2 = data1.results[0].geometry.location.lng;
+		console.log(lat1);
+		var start = lat0;
+		var end = lat1;
+		update(start, end);
+		// var start = "{lat:" + lat + "," + "lng:" + lng + "}";
+		// var end = "{lat:" + lat1 + "," + "lng:" + lng1 + "}";
+		console.log(start);
+
+		console.log(end);
+    var distance = Math.sqrt(Math.pow(lat2-lat, 2) + Math.pow(lng2-lng, 2));
+    console.log(lat2);
+    console.log(lat);
+    console.log(lng2);
+    console.log(lng);
+    console.log(distance);
+    Number.prototype.toRad = function() {
+   return this * Math.PI / 180;
+}
+
+// var lat2 = 42.741; 
+// var lon2 = -71.3161; 
+// var lat1 = 42.806911; 
+// var lon1 = -71.290611; 
+
+var R = 6371; // km 
+//has a problem with the .toRad() method below.
+var x1 = lat2-lat;
+var dLat = x1.toRad();  
+var x2 = lng2-lng;
+var dLon = x2.toRad();  
+var a = Math.sin(dLat/2) * Math.sin(dLat/2) + 
+                Math.cos(lat.toRad()) * Math.cos(lat2.toRad()) * 
+                Math.sin(dLon/2) * Math.sin(dLon/2);  
+var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
+var d = R * c; 
+
+console.log(d);
+var walking = Math.floor(d/0.083333333);
+var running = Math.floor(d/0.36);
+var jixian = Math.floor(d/0.6*60);
+var superman = Math.floor(d/200*60*1000);
+console.log(walking);
+console.log(running);
+console.log(jixian);
+console.log(superman);
+var walkingb;
+var runningb;
+var jixianb;
+var supermanb;
+if (walking >= 30){
+  walkingb = "please do it on the spot";
+}
+else if (walking >= 15 && walking < 30 ){
+  walkingb = "oh...no";
+}
+else if (walking >= 5 && walking < 15 ){
+  walkingb = "fine";
+}
+else if (walking <= 5){
+walkingb = "nice";
+}
+if (running >= 30){
+  runningb = "please do it on the spot";
+}
+else if (running >= 15 && running < 30 ){
+  runningb = "oh...no";
+}
+else if (running >= 5 && running < 15 ){
+  runningb = "fine";
+}
+else if (running <= 5){
+runningb = "nice";
+}
+if (jixian >= 300000){
+  jixianb = "please do it on the spot";
+}
+else if (jixian >= 150000 && jixian < 300000 ){
+  jixianb = "oh...no";
+}
+else if (jixian >= 50000 && jixian < 150000 ){
+  jixianb = "fine";
+}
+else if (jixian <= 50000){
+jixianb = "nice";
+}
+if (superman >= 3000000000){
+  rsupermanb = "please do it on the spot";
+}
+else if (superman >= 1500000000 && superman < 3000000000 ){
+  runningb = "oh...no";
+}
+else if (superman >= 500000000 && superman < 1500000000 ){
+  supermanb = "fine";
+}
+else if (superman <= 5000000000){
+supermanb = "nice";
+}
+walking = walking + "min";
+running = running + "min";
+jixian = jixian + "s";
+superman = superman + "ms";
+$("#way1").html(walking);
+$("#way2").html(running);
+$("#way3").html(jixian);
+$("#way4").html(superman);
+$("#waya").html(walkingb);
+$("#wayb").html(runningb);
+$("#wayc").html(jixianb);
+$("#wayd").html(supermanb);
+	 var array = [
+
+  
+  ]; 
+}
+}
+}
+var directionsDisplay;
+var directionsService;
+        // var origin = {lat: 37.97, lng: -122.447};  // Haight.
+        // var destination = {lat: 37.768, lng: -122.511};  // Ocean Beach.
+
+      function initMap() {
+
+        directionsDisplay = new google.maps.DirectionsRenderer;
+        directionsService = new google.maps.DirectionsService;
+
         var map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: 40.7353043, lng: -73.9967813},
-          zoom: 18,
-          mapTypeId: 'roadmap'
+          zoom: 14,
+          center: {lat: 37.77, lng: -122.447}
         });
+        directionsDisplay.setMap(map);
 
-        // Create the search box and link it to the UI element.
-        var input = document.getElementById('pac-input');
-        var searchBox = new google.maps.places.SearchBox(input);
-        map.controls[google.maps.ControlPosition.CENTER].push(input);
 
-        // Bias the SearchBox results towards current map's viewport.
-        map.addListener('bounds_changed', function() {
-          searchBox.setBounds(map.getBounds());
+        calculateAndDisplayRoute(directionsService, directionsDisplay);
+        document.getElementById('mode').addEventListener('change', function() {
+        calculateAndDisplayRoute(directionsService, directionsDisplay);
         });
-
-        var markers = [];
-        // Listen for the event fired when the user selects a prediction and retrieve
-        // more details for that place.
-        searchBox.addListener('places_changed', function() {
-          var places = searchBox.getPlaces();
-
-          if (places.length == 0) {
-            return;
+        var icons = {
+          parking: {
+            icon: iconBase + 'lotus.png'
+          },
+          library: {
+            icon: iconBase + 'lotus.png'
+          },
+          info: {
+            icon: iconBase + 'lotus.png'
           }
+        };
+         var features = [
+          {
+            position: new google.maps.LatLng(-33.91721, 151.22630),
+            type: 'info'
+          }, {
+            position: new google.maps.LatLng(-33.91539, 151.22820),
+            type: 'info'
+          }, {
+            position: new google.maps.LatLng(-33.91747, 151.22912),
+            type: 'info'
+          }, {
+            position: new google.maps.LatLng(-33.91910, 151.22907),
+            type: 'info'
+          }, {
+            position: new google.maps.LatLng(-33.91725, 151.23011),
+            type: 'info'
+          }, {
+            position: new google.maps.LatLng(-33.91872, 151.23089),
+            type: 'info'
+          }, {
+            position: new google.maps.LatLng(-33.91784, 151.23094),
+            type: 'info'
+          }, {
+            position: new google.maps.LatLng(-33.91682, 151.23149),
+            type: 'info'
+          }, {
+            position: new google.maps.LatLng(-33.91790, 151.23463),
+            type: 'info'
+          }, {
+            position: new google.maps.LatLng(-33.91666, 151.23468),
+            type: 'info'
+          }, {
+            position: new google.maps.LatLng(-33.916988, 151.233640),
+            type: 'info'
+          }, {
+            position: new google.maps.LatLng(-33.91662347903106, 151.22879464019775),
+            type: 'parking'
+          }, {
+            position: new google.maps.LatLng(-33.916365282092855, 151.22937399734496),
+            type: 'parking'
+          }, {
+            position: new google.maps.LatLng(-33.91665018901448, 151.2282474695587),
+            type: 'parking'
+          }, {
+            position: new google.maps.LatLng(-33.919543720969806, 151.23112279762267),
+            type: 'parking'
+          }, {
+            position: new google.maps.LatLng(-33.91608037421864, 151.23288232673644),
+            type: 'parking'
+          }, {
+            position: new google.maps.LatLng(-33.91851096391805, 151.2344058214569),
+            type: 'parking'
+          }, {
+            position: new google.maps.LatLng(-33.91818154739766, 151.2346203981781),
+            type: 'parking'
+          }, {
+            position: new google.maps.LatLng(-33.91727341958453, 151.23348314155578),
+            type: 'library'
+          }
+        ];
 
-          // Clear out the old markers.
-          markers.forEach(function(marker) {
-            marker.setMap(null);
+        // Create markers.
+        
+          var marker = new google.maps.Marker({
+            position: new google.maps.LatLng(37.77, -122.447),
+            icon: icons[features[i].type].icon,
+            map: map
           });
-          markers = [];
+        };
+      
+      
+var oMarker = new google.maps.Marker({
+    position: latLng,
+    sName: "Marker Name",
+    map: map,
+    icon: {
+        path: google.maps.SymbolPath.CIRCLE,
+        scale: 8.5,
+        fillColor: "#F00",
+        fillOpacity: 0.4,
+        strokeWeight: 0.4
+    },
+});
 
-          // For each place, get the icon, name and location.
-          var bounds = new google.maps.LatLngBounds();
-          places.forEach(function(place) {
-            if (!place.geometry) {
-              console.log("Returned place contains no geometry");
-              return;
-            }
-            var icon = {
-              url: place.icon,
-              size: new google.maps.Size(71, 71),
-              origin: new google.maps.Point(0, 0),
-              anchor: new google.maps.Point(17, 34),
-              scaledSize: new google.maps.Size(25, 25)
-            };
-
-            // Create a marker for each place.
-            markers.push(new google.maps.Marker({
-              map: map,
-              icon: icon,
-              title: place.name,
-              position: place.geometry.location
-            }));
-
-            if (place.geometry.viewport) {
-              // Only geocodes have viewport.
-              bounds.union(place.geometry.viewport);
-            } else {
-              bounds.extend(place.geometry.location);
-            }
-          });
-          map.fitBounds(bounds);
-        });
-
+      function update(start, end){
+      	      // to update change the origin and destiation
+      // call this function calculateAndDisplayRoute(directionsService, directionsDisplay);
+      	origin = start;
+      	destination = end;
+      	// better than the below - look at triggering #mode did change
+      	calculateAndDisplayRoute(directionsService, directionsDisplay);
       }
-      // AIzaSyBnhFso--q7-aYSPv4MLwahvovMQO3CeBQ     APIkey
-      // https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=AIzaSyBnhFso--q7-aYSPv4MLwahvovMQO3CeBQ    地址转坐标
-// //       https://maps.googleapis.com/maps/api/directions/json?
-// origin=Toronto&destination=Montreal
-// &key=AIzaSyBnhFso--q7-aYSPv4MLwahvovMQO3CeBQ    
-// https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=-33.8670522,151.1957362&radius=1500&type=restaurant&keyword=cruise&key=AIzaSyBnhFso--q7-aYSPv4MLwahvovMQO3CeBQ   坐标附近关键词
-    </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBnhFso--q7-aYSPv4MLwahvovMQO3CeBQ&libraries=places&callback=initAutocomplete"
-         async defer></script>
 
-  </body>
+
+
+      function calculateAndDisplayRoute(directionsService, directionsDisplay) {
+
+        var selectedMode = document.getElementById('mode').value;
+        directionsService.route({
+          origin: origin,  // Haight.
+          destination: destination,  // Ocean Beach.
+          // Note that Javascript allows us to access the constant
+          // using square brackets and a string value as its
+          // "property."
+          travelMode: google.maps.TravelMode[selectedMode]
+        }, function(response, status) {
+          if (status == 'OK') {
+            directionsDisplay.setDirections(response);
+          } else {
+            window.alert('Directions request failed due to ' + status);
+          }
+        });
+      }
+</script>
+<script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBnhFso--q7-aYSPv4MLwahvovMQO3CeBQ&callback=initMap">
+    </script>
+</body>
 </html>
-   
-   
