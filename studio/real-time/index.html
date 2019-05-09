@@ -179,6 +179,18 @@ position:absolute;
       display:none;
 
     }
+    #baozha{
+      display:none;
+      height:5%;
+      z-index:8;
+      position: absolute;
+      left: 60%;
+  margin-left: -100px;
+  top: 50%;
+  margin-top: -100px;
+  animation: leaves 400s ease-in-out infinite alternate;
+    
+    }
     #balloon{
       height:5%;
       z-index:8;
@@ -215,6 +227,7 @@ position:absolute;
     </select>
     </div>
     <img src = balloon.png id = "balloon" onclick="formdata()"></img>
+    <img src = baozha.gif id = "baozha" onclick="formdata()"></img>
     <div id="map"></div>
     <div id = "cover"></div>
 <div id = "way1" class = "words">hellow</div>
@@ -238,7 +251,17 @@ position:absolute;
 
 <script type="text/javascript">
 	var input = document.getElementById("input");
+  var myVar;
 
+function myFunction() {
+  myVar = setInterval(alertFunc, 140000);
+}
+
+function alertFunc() {
+  $( "#baozha" ).show();
+  $( "#balloon" ).hide();
+}
+myFunction();
 // Execute a function when the user releases a key on the keyboard
 input.addEventListener("keydown", function(event) {
   // Number 13 is the "Enter" key on the keyboard
@@ -318,6 +341,7 @@ key: key
     $("#input").css({top: '200px', position:'absolute'});
     $("#button").css({top: '200px', position:'absolute'});
     $("#balloon").css({top: '200px', position:'absolute'});
+    $("#baozha").css({top: '200px', position:'absolute'});
     // $( "#input").remove();
     // $( "#button").remove();
 
